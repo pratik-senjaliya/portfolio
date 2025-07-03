@@ -49,8 +49,9 @@ export const cvData: CVData = {
   personalInfo: {
     name: "Pratik Senjaliya",
     title: "Frontend Developer & Full-Stack Engineer",
-    email: "pratiksenjaliya@gmail.com",
-    location: "India",
+    email: "pratiksenjaliya1999@gmail.com",
+    phone: "+91 9723176882",
+    location: "Ahmedabad, India",
     linkedin: "https://www.linkedin.com/in/pratik-senjaliya-732535149/",
     github: "https://github.com/pratiksenjaliya",
     portfolio: "https://pratiksenjaliya.dev"
@@ -370,6 +371,7 @@ export function generateCVHTML(data: CVData): string {
         <div class="title">${data.personalInfo.title}</div>
         <div class="contact-info">
             <div class="contact-item">📧 ${data.personalInfo.email}</div>
+            ${data.personalInfo.phone ? `<div class="contact-item">📞 ${data.personalInfo.phone}</div>` : ''}
             <div class="contact-item">📍 ${data.personalInfo.location}</div>
             <div class="contact-item">💼 LinkedIn</div>
             <div class="contact-item">🐙 GitHub</div>

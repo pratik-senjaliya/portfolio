@@ -3,477 +3,368 @@
 "use client"
 
 import * as React from "react"
-import { motion, useInView } from "framer-motion"
-import { Github, ExternalLink, Filter, X, Brain, Bot, Code, Zap, Globe, Palette, Server } from "lucide-react"
+import { motion, useInView, AnimatePresence } from "framer-motion"
+import { ExternalLink, Github, Eye, Star, Code, Zap, Users, TrendingUp, Award, X, Play, Calendar, Tag } from "lucide-react"
+import Image from "next/image"
 import { cn } from "@/lib/utils"
 
+// Project data with enhanced information
 const projects = [
   {
     id: 1,
-    title: "Interactive E-Commerce Platform",
-    description: "Modern e-commerce solution with advanced React patterns, beautiful animations, and seamless user experience. Built with Next.js, TypeScript, and enhanced with AI development tools.",
-    longDescription: "A comprehensive e-commerce platform showcasing modern frontend development practices. Features advanced React patterns, smooth animations, responsive design, and optimal performance. Developed efficiently using AI-assisted tools like Cursor and Copilot.",
+    title: "E-Commerce Platform",
+    description: "A modern, full-stack e-commerce solution with advanced features",
+    longDescription: "Built a comprehensive e-commerce platform with React, Next.js, and Node.js. Features include user authentication, payment processing, inventory management, and real-time analytics. Implemented responsive design and optimized for performance.",
     image: "/api/placeholder/600/400",
-    category: "Frontend",
-    status: "Live",
-    tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "Stripe", "AI-Enhanced"],
-    demoUrl: "#",
-    githubUrl: "#",
+    tags: ["React", "Next.js", "Node.js", "MongoDB", "Stripe", "Tailwind"],
+    liveUrl: "https://ecommerce-demo.com",
+    githubUrl: "https://github.com/pratiksenjaliya/ecommerce-platform",
     featured: true,
-    highlights: [
-      "Advanced React patterns and state management",
-      "Smooth animations and microinteractions",
-      "Responsive design with mobile-first approach",
-      "Optimized performance and accessibility",
-      "AI-assisted development for faster delivery"
-    ]
+    status: "Live",
+    year: "2023",
+    category: "Full-Stack",
+    stats: [
+      { label: "Users", value: "10K+", color: "cyber-blue" },
+      { label: "Performance", value: "95%", color: "quantum-green" },
+      { label: "Uptime", value: "99.9%", color: "neon-purple" }
+    ],
+    color: "cyber-blue"
   },
   {
     id: 2,
-    title: "React Dashboard with Real-time Analytics",
-    description: "Feature-rich admin dashboard with complex data visualizations, real-time updates, and intuitive user interface. Built with modern React ecosystem and component libraries.",
-    longDescription: "A sophisticated dashboard application demonstrating advanced frontend skills including complex state management, data visualization, real-time updates, and user experience design. Enhanced development workflow with AI tools.",
+    title: "Task Management App",
+    description: "Collaborative task management with real-time updates",
+    longDescription: "Developed a collaborative task management application with real-time synchronization, drag-and-drop functionality, and team collaboration features. Built with React, TypeScript, and Socket.io for real-time communication.",
     image: "/api/placeholder/600/400",
-    category: "Frontend",
-    status: "Completed",
-    tags: ["React", "TypeScript", "Chart.js", "Socket.io", "Material-UI", "Redux Toolkit"],
-    demoUrl: "#",
-    githubUrl: "#",
+    tags: ["React", "TypeScript", "Socket.io", "Express", "PostgreSQL"],
+    liveUrl: "https://taskmanager-demo.com",
+    githubUrl: "https://github.com/pratiksenjaliya/task-manager",
     featured: true,
-    highlights: [
-      "Complex data visualization with Chart.js",
-      "Real-time updates with WebSocket integration",
-      "Advanced filtering and search functionality",
-      "Responsive design for all screen sizes",
-      "Comprehensive testing with Jest and RTL"
-    ]
+    status: "Live",
+    year: "2023",
+    category: "Frontend",
+    stats: [
+      { label: "Teams", value: "500+", color: "neon-purple" },
+      { label: "Tasks", value: "50K+", color: "electric-cyan" },
+      { label: "Rating", value: "4.8/5", color: "quantum-green" }
+    ],
+    color: "neon-purple"
   },
   {
     id: 3,
-    title: "SaaS Landing Page with Animations",
-    description: "High-converting SaaS landing page with stunning animations, interactive elements, and pixel-perfect design. Showcases advanced CSS and animation techniques.",
-    longDescription: "A beautifully crafted landing page that demonstrates expertise in modern CSS, animations, and user experience design. Features scroll-triggered animations, interactive elements, and conversion-optimized layout.",
+    title: "Analytics Dashboard",
+    description: "Real-time data visualization and analytics platform",
+    longDescription: "Created a comprehensive analytics dashboard with interactive charts, real-time data updates, and customizable reports. Integrated with multiple data sources and APIs for comprehensive business intelligence.",
     image: "/api/placeholder/600/400",
-    category: "Frontend",
+    tags: ["Angular", "D3.js", "Python", "FastAPI", "Redis"],
+    liveUrl: "https://analytics-demo.com",
+    githubUrl: "https://github.com/pratiksenjaliya/analytics-dashboard",
+    featured: false,
     status: "Live",
-    tags: ["Next.js", "React", "Framer Motion", "GSAP", "Tailwind CSS", "Optimization"],
-    demoUrl: "#",
-    githubUrl: "#",
-    featured: true,
-    highlights: [
-      "Scroll-triggered animations with Framer Motion",
-      "Custom CSS animations and transitions",
-      "Conversion-optimized design and layout",
-      "Perfect Lighthouse performance scores",
-      "SEO optimized with structured data"
-    ]
+    year: "2022",
+    category: "Frontend",
+    stats: [
+      { label: "Data Points", value: "1M+", color: "electric-cyan" },
+      { label: "Load Time", value: "<2s", color: "quantum-green" },
+      { label: "Accuracy", value: "99%", color: "cyber-blue" }
+    ],
+    color: "electric-cyan"
   },
   {
     id: 4,
-    title: "Full-Stack Social Media App",
-    description: "Complete social media application with React frontend and Node.js backend. Features real-time messaging, file uploads, and complex user interactions.",
-    longDescription: "A full-featured social media platform demonstrating both frontend and backend development skills. Built with modern technologies and language-agnostic backend approach.",
+    title: "AI Content Generator",
+    description: "AI-powered content creation and optimization tool",
+    longDescription: "Built an AI-powered content generation platform that helps users create, edit, and optimize content using machine learning models. Features include text generation, SEO optimization, and content analysis.",
     image: "/api/placeholder/600/400",
-    category: "Full Stack",
-    status: "In Development",
-    tags: ["React", "Node.js", "Socket.io", "MongoDB", "GraphQL", "AWS S3", "JWT"],
-    demoUrl: "#",
-    githubUrl: "#",
-    featured: false,
-    highlights: [
-      "Real-time messaging and notifications",
-      "File upload and media management",
-      "Complex user interactions and feeds",
-      "JWT authentication and authorization",
-      "Scalable backend architecture"
-    ]
-  },
-  {
-    id: 5,
-    title: "Portfolio Website Generator",
-    description: "React-based portfolio generator tool that helps developers create beautiful portfolios quickly. Features template system and customization options.",
-    longDescription: "A developer tool that demonstrates component architecture and design system principles. Built to help other developers create professional portfolios with ease.",
-    image: "/api/placeholder/600/400",
-    category: "Frontend",
-    status: "Completed",
-    tags: ["React", "TypeScript", "Design System", "Component Library", "Storybook"],
-    demoUrl: "#",
-    githubUrl: "#",
-    featured: false,
-    highlights: [
-      "Modular component architecture",
-      "Customizable design system",
-      "Template generation system",
-      "Interactive preview functionality",
-      "Export to various formats"
-    ]
-  },
-  {
-    id: 6,
-    title: "Progressive Web App for Productivity",
-    description: "Task management PWA with offline functionality, push notifications, and native-like experience. Demonstrates modern web app capabilities.",
-    longDescription: "A productivity-focused PWA showcasing modern web technologies including service workers, offline functionality, and native app features. Language-agnostic backend with Python APIs.",
-    image: "/api/placeholder/600/400",
-    category: "Full Stack",
-    status: "Live",
-    tags: ["React", "PWA", "Service Workers", "Python", "FastAPI", "SQLite", "Push Notifications"],
-    demoUrl: "#",
-    githubUrl: "#",
-    featured: false,
-    highlights: [
-      "Offline functionality with service workers",
-      "Push notifications and background sync",
-      "Native app-like experience",
-      "Cross-platform compatibility",
-      "Efficient data synchronization"
-    ]
+    tags: ["React", "Next.js", "OpenAI API", "Python", "TensorFlow"],
+    liveUrl: "https://ai-content-demo.com",
+    githubUrl: "https://github.com/pratiksenjaliya/ai-content-generator",
+    featured: true,
+    status: "Beta",
+    year: "2023",
+    category: "AI/ML",
+    stats: [
+      { label: "Content Generated", value: "100K+", color: "quantum-green" },
+      { label: "Users", value: "5K+", color: "cyber-blue" },
+      { label: "Accuracy", value: "94%", color: "neon-purple" }
+    ],
+    color: "quantum-green"
   }
 ]
 
-const categories = ["All", "Frontend", "Full Stack"]
+const categories = ["All", "Full-Stack", "Frontend", "AI/ML", "Mobile"]
 
 export function ProjectsSection() {
-  const [selectedCategory, setSelectedCategory] = React.useState("All")
-  const [selectedProject, setSelectedProject] = React.useState<typeof projects[0] | null>(null)
   const ref = React.useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
+  const [selectedCategory, setSelectedCategory] = React.useState("All")
+  const [selectedProject, setSelectedProject] = React.useState<typeof projects[0] | null>(null)
 
-  const filteredProjects = projects.filter(
-    project => selectedCategory === "All" || project.category === selectedCategory
-  )
+  const filteredProjects = selectedCategory === "All" 
+    ? projects 
+    : projects.filter(project => project.category === selectedCategory)
 
-  const featuredProjects = filteredProjects.filter(project => project.featured)
+  const featuredProjects = projects.filter(project => project.featured)
 
   return (
-    <section id="projects" className="py-20 lg:py-32 relative overflow-hidden" ref={ref}>
-      {/* Futuristic background elements */}
+    <section ref={ref} id="projects" className="section relative overflow-hidden">
+      {/* Enhanced background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 right-20 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 left-20 w-64 h-64 bg-purple-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-20 left-20 w-64 h-64 bg-gradient-to-r from-neon-purple/5 to-electric-cyan/5 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-20 right-20 w-64 h-64 bg-gradient-to-r from-quantum-green/5 to-neural-orange/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+        
+        {/* Floating geometric elements */}
         <motion.div
-          className="absolute top-1/3 right-1/4 w-1 h-20 bg-gradient-to-b from-blue-500/20 to-transparent"
-          animate={{ scaleY: [1, 1.5, 1], opacity: [0.2, 0.5, 0.2] }}
-          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute bottom-1/3 left-1/4 w-1 h-20 bg-gradient-to-b from-purple-500/20 to-transparent"
-          animate={{ scaleY: [1, 1.5, 1], opacity: [0.2, 0.5, 0.2] }}
-          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+          className="absolute top-1/3 right-1/4 w-2 h-16 bg-gradient-to-b from-neon-purple/20 to-transparent"
+          animate={{ scaleY: [1, 1.3, 1], opacity: [0.2, 0.5, 0.2] }}
+          transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent"
-          >
-            Featured Projects
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl text-muted-foreground max-w-2xl mx-auto"
-          >
-            Frontend-focused development projects showcasing modern web technologies and efficient AI-enhanced workflows
-          </motion.p>
-        </motion.div>
-
-        {/* Development Focus Highlight */}
+      <div className="container relative z-10">
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mb-12"
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
         >
-          <div className="gradient-border-thick p-6 backdrop-blur-sm pattern-shadow">
-            <div className="flex items-center justify-center space-x-8 text-center flex-wrap gap-4">
-              <div className="flex items-center space-x-2">
-                <Code className="w-5 h-5 text-blue-500" />
-                <span className="text-sm font-medium thick-underline">React • Next.js • Angular</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Globe className="w-5 h-5 text-green-500" />
-                <span className="text-sm font-medium thick-underline">Full-Stack Capable</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Brain className="w-5 h-5 text-purple-500" />
-                <span className="text-sm font-medium thick-underline">AI-Enhanced Development</span>
-              </div>
-            </div>
-          </div>
+          <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-primary">
+            Featured <span className="bg-gradient-to-r from-cyber-blue via-neon-purple to-electric-cyan bg-clip-text text-transparent">Projects</span>
+          </h2>
+          <p className="text-lg text-secondary max-w-2xl mx-auto">
+            A collection of projects showcasing my skills in modern web development and innovative solutions
+          </p>
         </motion.div>
 
         {/* Category Filter */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="flex items-center justify-center space-x-4 mb-12"
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex flex-wrap justify-center gap-2 mb-12"
         >
-          <Filter className="w-5 h-5 text-muted-foreground" />
-          <div className="flex space-x-2">
-            {categories.map((category) => (
-              <motion.button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={cn(
-                  "px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 backdrop-blur-sm",
-                  selectedCategory === category
-                    ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg"
-                    : "bg-card/50 border border-border/50 hover:bg-gradient-to-r hover:from-blue-500/10 hover:to-purple-500/10 hover:border-blue-500/20"
-                )}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                {category}
-              </motion.button>
-            ))}
-          </div>
+          {categories.map((category) => (
+            <button
+              key={category}
+              onClick={() => setSelectedCategory(category)}
+              className={`futuristic-badge transition-all duration-300 ${
+                selectedCategory === category
+                  ? "text-cyber-blue border-cyber-blue/50 bg-cyber-blue/10"
+                  : "text-secondary border-border hover:text-cyber-blue hover:border-cyber-blue/30"
+              }`}
+            >
+              {category}
+            </button>
+          ))}
         </motion.div>
 
-        {/* Featured Projects Grid */}
-        <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8 mb-16">
-          {featuredProjects.map((project, index) => (
+        {/* Projects Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredProjects.map((project, index) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-              className="group"
+              transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
+              className={`futuristic-card group hover:border-${project.color}/40 transition-all duration-500 cursor-pointer relative overflow-hidden`}
+              onClick={() => setSelectedProject(project)}
             >
-              <motion.div
-                className="relative bg-card/50 border border-border/50 rounded-xl p-6 hover:shadow-xl transition-all duration-500 backdrop-blur-sm overflow-hidden"
-                whileHover={{ y: -8, scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                {/* Glow effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-cyan-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm" />
-                
-                {/* Shimmer effect */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full"
-                  animate={{ x: ['-100%', '100%'] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
-                />
+              <div className={`absolute inset-0 bg-gradient-to-r from-${project.color}/5 via-transparent to-${project.color}/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+              
+              <div className="relative z-10">
+                {/* Project Image */}
+                <div className="relative mb-6 overflow-hidden rounded-lg">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    width={400}
+                    height={250}
+                    className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  
+                  {/* Project Status */}
+                  <div className={`absolute top-4 left-4 futuristic-status-badge text-${project.color} bg-${project.color}/10 border-${project.color}/30`}>
+                    {project.status}
+                  </div>
+                  
+                  {/* Featured Badge */}
+                  {project.featured && (
+                    <div className="absolute top-4 right-4 bg-gradient-to-r from-quantum-green to-electric-cyan rounded-full p-2">
+                      <Star className="w-4 h-4 text-white fill-current" />
+                    </div>
+                  )}
+                  
+                  {/* Hover Overlay */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="flex gap-3">
+                      <div className="futuristic-button p-2">
+                        <Eye className="w-5 h-5" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-                <div className="relative z-10">
-                  {/* Project Image Placeholder */}
-                  <div className="w-full h-48 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-lg mb-4 flex items-center justify-center backdrop-blur-sm">
-                    <Code className="w-12 h-12 text-blue-500/50" />
+                {/* Project Info */}
+                <div className="space-y-4">
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <h3 className={`text-xl font-bold text-primary group-hover:text-${project.color} transition-colors`}>
+                        {project.title}
+                      </h3>
+                      <div className="flex items-center gap-1 text-tertiary text-sm">
+                        <Calendar className="w-4 h-4" />
+                        {project.year}
+                      </div>
+                    </div>
+                    <p className="text-secondary text-sm leading-relaxed">{project.description}</p>
                   </div>
 
-                  {/* Status Badge */}
-                  <div className="flex items-center justify-between mb-3">
-                    <span className={cn(
-                      "px-3 py-1 rounded-full text-xs font-medium backdrop-blur-sm",
-                      project.status === "Live" 
-                        ? "bg-green-500/20 text-green-600 border border-green-500/20"
-                        : project.status === "Completed"
-                        ? "bg-blue-500/20 text-blue-600 border border-blue-500/20"
-                        : "bg-orange-500/20 text-orange-600 border border-orange-500/20"
-                    )}>
-                      {project.status}
-                    </span>
-                    <span className="text-xs text-muted-foreground bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-medium">
-                      {project.category}
-                    </span>
+                  {/* Project Stats */}
+                  <div className="grid grid-cols-3 gap-2">
+                    {project.stats.map((stat, idx) => (
+                      <div key={stat.label} className="text-center">
+                        <div className={`text-sm font-bold text-${stat.color}`}>{stat.value}</div>
+                        <div className="text-xs text-tertiary">{stat.label}</div>
+                      </div>
+                    ))}
                   </div>
 
-                  {/* Project Title */}
-                  <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
-                    {project.title}
-                  </h3>
-
-                  {/* Project Description */}
-                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
-                    {project.description}
-                  </p>
-
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tags.slice(0, 4).map((tag) => (
+                  {/* Technologies */}
+                  <div className="flex flex-wrap gap-1">
+                    {project.tags.slice(0, 3).map((tag) => (
                       <span
                         key={tag}
-                        className="px-2 py-1 bg-gradient-to-r from-blue-500/10 to-purple-500/10 text-blue-600 dark:text-blue-400 text-xs rounded border border-blue-500/20 backdrop-blur-sm"
+                        className={`futuristic-badge text-xs text-${project.color} border-${project.color}/30`}
                       >
                         {tag}
                       </span>
                     ))}
-                    {project.tags.length > 4 && (
-                      <span className="px-2 py-1 bg-muted/50 text-muted-foreground text-xs rounded backdrop-blur-sm">
-                        +{project.tags.length - 4}
+                    {project.tags.length > 3 && (
+                      <span className="futuristic-badge text-xs text-tertiary border-border">
+                        +{project.tags.length - 3}
                       </span>
                     )}
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="flex items-center space-x-3">
-                    <motion.button
-                      onClick={() => setSelectedProject(project)}
-                      className="flex-1 px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-sm font-medium rounded-lg hover:shadow-lg transition-all duration-300"
-                      whileHover={{ scale: 1.02, y: -1 }}
-                      whileTap={{ scale: 0.98 }}
-                      transition={{ type: "spring", stiffness: 300 }}
+                  <div className="flex gap-2 pt-2">
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`flex-1 futuristic-button text-xs bg-gradient-to-r from-${project.color} to-${project.color}-hover`}
+                      onClick={(e) => e.stopPropagation()}
                     >
-                      View Details
-                    </motion.button>
-                    <motion.a
+                      <ExternalLink className="w-3 h-3" />
+                      Live Demo
+                    </a>
+                    <a
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2 bg-card/50 border border-border/50 rounded-lg hover:bg-gradient-to-r hover:from-blue-500/10 hover:to-purple-500/10 hover:border-blue-500/20 transition-all duration-300 backdrop-blur-sm"
-                      whileHover={{ scale: 1.05, y: -1 }}
-                      whileTap={{ scale: 0.95 }}
-                      transition={{ type: "spring", stiffness: 300 }}
+                      className="futuristic-button text-xs"
+                      onClick={(e) => e.stopPropagation()}
                     >
-                      <Github className="w-4 h-4" />
-                    </motion.a>
-                    <motion.a
-                      href={project.demoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 bg-card/50 border border-border/50 rounded-lg hover:bg-gradient-to-r hover:from-blue-500/10 hover:to-purple-500/10 hover:border-blue-500/20 transition-all duration-300 backdrop-blur-sm"
-                      whileHover={{ scale: 1.05, y: -1 }}
-                      whileTap={{ scale: 0.95 }}
-                      transition={{ type: "spring", stiffness: 300 }}
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                    </motion.a>
+                      <Github className="w-3 h-3" />
+                    </a>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </motion.div>
           ))}
         </div>
 
-        {/* All Projects Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="text-center"
-        >
-          <motion.button
-            className="px-8 py-3 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-cyan-500/10 border border-blue-500/20 text-foreground font-semibold rounded-lg hover:from-blue-500/20 hover:via-purple-500/20 hover:to-cyan-500/20 transition-all duration-300 backdrop-blur-sm"
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            View All Projects
-          </motion.button>
-        </motion.div>
-      </div>
-
-      {/* Project Modal */}
-      {selectedProject && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-          onClick={() => setSelectedProject(null)}
-        >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="bg-card/95 border border-border/50 rounded-xl p-6 max-w-2xl w-full max-h-[80vh] overflow-y-auto backdrop-blur-md"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Modal Header */}
-            <div className="flex items-center justify-between mb-6">
-              <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                {selectedProject.title}
-              </h3>
-              <motion.button
-                onClick={() => setSelectedProject(null)}
-                className="p-2 hover:bg-muted rounded-lg transition-colors"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
+        {/* Project Modal */}
+        <AnimatePresence>
+          {selectedProject && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-background/80 backdrop-blur-sm"
+              onClick={() => setSelectedProject(null)}
+            >
+              <motion.div
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.8, opacity: 0 }}
+                className="futuristic-card-elevated max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+                onClick={(e) => e.stopPropagation()}
               >
-                <X className="w-5 h-5" />
-              </motion.button>
-            </div>
-
-            {/* Modal Content */}
-            <div className="space-y-6">
-              <p className="text-muted-foreground leading-relaxed">
-                {selectedProject.longDescription}
-              </p>
-
-              {/* Highlights */}
-              <div>
-                <h4 className="font-semibold mb-3">Key Features:</h4>
-                <ul className="space-y-2">
-                  {selectedProject.highlights.map((highlight, index) => (
-                    <li key={index} className="flex items-start space-x-2">
-                      <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" />
-                      <span className="text-sm text-muted-foreground">{highlight}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Tags */}
-              <div>
-                <h4 className="font-semibold mb-3">Technologies Used:</h4>
-                <div className="flex flex-wrap gap-2">
-                  {selectedProject.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 bg-gradient-to-r from-blue-500/10 to-purple-500/10 text-blue-600 dark:text-blue-400 text-sm rounded-full border border-blue-500/20 backdrop-blur-sm"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                <div className="relative">
+                  <button
+                    onClick={() => setSelectedProject(null)}
+                    className="absolute top-4 right-4 z-10 futuristic-button p-2"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                  
+                  <Image
+                    src={selectedProject.image}
+                    alt={selectedProject.title}
+                    width={800}
+                    height={400}
+                    className="w-full h-64 object-cover rounded-lg mb-6"
+                  />
+                  
+                  <div className="space-y-6">
+                    <div>
+                      <h3 className="text-3xl font-bold text-primary mb-2">{selectedProject.title}</h3>
+                      <p className="text-secondary leading-relaxed">{selectedProject.longDescription}</p>
+                    </div>
+                    
+                    <div className="grid md:grid-cols-3 gap-6">
+                      {selectedProject.stats.map((stat) => (
+                        <div key={stat.label} className="futuristic-card text-center">
+                          <div className={`text-2xl font-bold text-${stat.color} mb-1`}>{stat.value}</div>
+                          <div className="text-sm text-tertiary">{stat.label}</div>
+                        </div>
+                      ))}
+                    </div>
+                    
+                    <div>
+                      <h4 className="text-lg font-semibold text-primary mb-3">Technologies Used</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {selectedProject.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className={`futuristic-badge text-${selectedProject.color} border-${selectedProject.color}/30`}
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    <div className="flex gap-4 pt-4">
+                      <a
+                        href={selectedProject.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="futuristic-button"
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                        View Live Project
+                      </a>
+                      <a
+                        href={selectedProject.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="futuristic-button"
+                      >
+                        <Github className="w-4 h-4" />
+                        View Source Code
+                      </a>
+                    </div>
+                  </div>
                 </div>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="flex space-x-4 pt-4">
-                <motion.a
-                  href={selectedProject.demoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 text-center"
-                  whileHover={{ scale: 1.02, y: -1 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <span className="flex items-center justify-center gap-2">
-                    <ExternalLink className="w-4 h-4" />
-                    View Live Demo
-                  </span>
-                </motion.a>
-                <motion.a
-                  href={selectedProject.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 px-6 py-3 bg-card/50 border border-border/50 font-semibold rounded-lg hover:bg-gradient-to-r hover:from-blue-500/10 hover:to-purple-500/10 hover:border-blue-500/20 transition-all duration-300 text-center backdrop-blur-sm"
-                  whileHover={{ scale: 1.02, y: -1 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <span className="flex items-center justify-center gap-2">
-                    <Github className="w-4 h-4" />
-                    View Source
-                  </span>
-                </motion.a>
-              </div>
-            </div>
-          </motion.div>
-        </motion.div>
-      )}
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </section>
   )
 } 
