@@ -5,7 +5,6 @@ import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
 import { Menu, X, Home, User, Briefcase, Code, FolderOpen, Mail, Sparkles, Github, Linkedin } from "lucide-react"
 import { ThemeToggle } from "./theme-toggle"
 import { cn, scrollToElement } from "@/lib/utils"
-import { useTheme } from "next-themes"
 
 const navItems = [
   { name: "Home", href: "#home", icon: Home },
