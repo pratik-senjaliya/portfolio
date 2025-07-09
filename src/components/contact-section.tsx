@@ -36,7 +36,7 @@ const contactInfo = [
   {
     icon: MapPin,
     label: "Location",
-    value: "Ahmedabad, India",
+    value: "Ahmedabad, Gujarat, India",
     href: "#",
     gradient: "from-purple-500 to-pink-500"
   }

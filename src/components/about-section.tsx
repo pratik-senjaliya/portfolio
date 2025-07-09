@@ -62,8 +62,8 @@ const interests = [
 
 const achievements = [
   { number: "4+", label: "Years", sublabel: "Professional Experience", progress: 90 },
-  { number: "100+", label: "Projects", sublabel: "Successfully Delivered", progress: 95 },
-  { number: "50+", label: "Clients", sublabel: "Happy & Satisfied", progress: 98 },
+  { number: "50+", label: "Projects", sublabel: "Successfully Delivered", progress: 95 },
+  { number: "2", label: "Awards", sublabel: "Recognized Excellence", progress: 98 },
   { number: "15+", label: "Technologies", sublabel: "Expertise Areas", progress: 88 }
 ]
 
@@ -147,18 +147,18 @@ export function AboutSection() {
               
               <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
                 <p>
-                  With over <span className="text-blue-600 dark:text-blue-400 font-bold">4 years of experience</span> in software development, I've had the privilege of 
-                  working with amazing teams at <span className="text-purple-600 dark:text-purple-400 font-bold">LinearLoop</span>, <span className="text-emerald-600 dark:text-emerald-400 font-bold">SoluteLabs</span>, and <span className="text-pink-600 dark:text-pink-400 font-bold">Reolo</span>. My journey has been 
-                  about creating meaningful digital experiences that users love.
+                  With over <span className="text-blue-600 dark:text-blue-400 font-bold">4 years of proven experience</span> in software development, I've had the privilege of 
+                  working with amazing teams at <span className="text-purple-600 dark:text-purple-400 font-bold">LinearLoop Pvt. Ltd.</span> and <span className="text-emerald-600 dark:text-emerald-400 font-bold">Solute TechnoLabs LLP</span>. My journey has been 
+                  about leading development teams and creating scalable enterprise applications that drive business success.
                 </p>
                 <p>
                   I specialize in <span className="text-blue-600 dark:text-blue-400 font-bold">modern frontend technologies</span> like React, Next.js, and Angular, with 
-                  a strong foundation in TypeScript and full-stack development. My approach combines 
-                  <span className="text-purple-600 dark:text-purple-400 font-bold"> technical expertise</span> with <span className="text-emerald-600 dark:text-emerald-400 font-bold">user-centered design thinking</span>.
+                  expanding technical exposure to backend technologies via <span className="text-purple-600 dark:text-purple-400 font-bold">AI-enhanced tools</span>. My approach combines 
+                  <span className="text-emerald-600 dark:text-emerald-400 font-bold">technical expertise</span> with <span className="text-pink-600 dark:text-pink-400 font-bold">team leadership</span> and innovative problem-solving.
                 </p>
                 <p>
-                  When I'm not coding, you'll find me exploring <span className="text-pink-600 dark:text-pink-400 font-bold">new technologies</span>, contributing to open 
-                  source projects, or enjoying a good cup of <span className="text-orange-600 dark:text-orange-400 font-bold">coffee</span> while planning the next innovative solution.
+                  Currently exploring <span className="text-pink-600 dark:text-pink-400 font-bold">generative AI applications</span>, prompt engineering, and automated workflow systems. 
+                  Passionate about leveraging AI tools to enhance development workflows and deliver high-quality solutions consistently ahead of schedule.
                 </p>
               </div>
             </div>
@@ -245,6 +245,50 @@ export function AboutSection() {
               </div>
             </div>
 
+            {/* Awards & Recognition */}
+            <div>
+              <h4 className="text-2xl font-bold mb-8">
+                Awards & <span className="bg-gradient-to-r from-yellow-600 to-orange-600 bg-clip-text text-transparent">Recognition</span>
+              </h4>
+              <div className="space-y-4">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                  transition={{ duration: 0.6, delay: 1.0 }}
+                  className="group flex items-start gap-4 p-6 bg-card/60 border border-border/50 rounded-xl hover:bg-muted/50 transition-all duration-300 backdrop-blur-sm"
+                >
+                  <div className="bg-gradient-to-r from-yellow-500 to-orange-500 p-3 rounded-xl shadow-lg group-hover:shadow-xl transition-shadow duration-300 flex-shrink-0">
+                    <Zap className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <h5 className="font-bold text-lg text-foreground mb-2 group-hover:text-primary transition-colors">
+                      Deadline Dhamaka Award
+                    </h5>
+                    <p className="text-sm text-muted-foreground mb-1">2024 • LinearLoop Pvt. Ltd.</p>
+                    <p className="text-muted-foreground leading-relaxed">Recognized for exceptional project delivery and deadline management, consistently delivering complex projects ahead of schedule.</p>
+                  </div>
+                </motion.div>
+                
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                  transition={{ duration: 0.6, delay: 1.1 }}
+                  className="group flex items-start gap-4 p-6 bg-card/60 border border-border/50 rounded-xl hover:bg-muted/50 transition-all duration-300 backdrop-blur-sm"
+                >
+                  <div className="bg-gradient-to-r from-blue-500 to-purple-500 p-3 rounded-xl shadow-lg group-hover:shadow-xl transition-shadow duration-300 flex-shrink-0">
+                    <Users className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <h5 className="font-bold text-lg text-foreground mb-2 group-hover:text-primary transition-colors">
+                      Team Player Award
+                    </h5>
+                    <p className="text-sm text-muted-foreground mb-1">2023 • Solute TechnoLabs LLP</p>
+                    <p className="text-muted-foreground leading-relaxed">Recognized for exceptional collaboration and support, being a valuable team member who contributes to team success.</p>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+
             {/* Personal Interests */}
             <div>
               <h4 className="text-2xl font-bold mb-8">
@@ -256,7 +300,7 @@ export function AboutSection() {
                     key={interest.title}
                     initial={{ opacity: 0, y: 20, scale: 0.9 }}
                     animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 20, scale: 0.9 }}
-                    transition={{ duration: 0.6, delay: 1.0 + index * 0.1 }}
+                    transition={{ duration: 0.6, delay: 1.2 + index * 0.1 }}
                     whileHover={{ scale: 1.05, y: -5 }}
                     className="group p-4 bg-card/60 border border-border/50 rounded-xl hover:bg-muted/50 transition-all duration-300 text-center backdrop-blur-sm"
                   >

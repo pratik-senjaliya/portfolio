@@ -6,81 +6,60 @@ import { Building2, Calendar, MapPin, ExternalLink, Users, Code, TrendingUp, Awa
 
 const experiences = [
   {
-    company: "LinearLoop",
-    role: "Senior Software Engineer",
-    duration: "Jan 2023 - Present",
+    company: "LinearLoop Pvt. Ltd.",
+    role: "Sr Software Engineer",
+    duration: "May 2023 - Present",
     location: "Remote",
     logo: "/api/placeholder/50/50",
     website: "https://linearloop.io",
     type: "Full-time",
-    description: "Leading frontend development initiatives and mentoring junior developers in a fast-growing startup environment.",
+    description: "Leading frontend development for enterprise applications while serving as the go-to developer for new technology adoptions.",
     achievements: [
-      "Led development of 5+ high-impact web applications using React and Next.js",
-      "Mentored a team of 4 junior developers, improving code quality by 40%",
-      "Implemented CI/CD pipelines reducing deployment time by 60%",
-      "Architected scalable frontend solutions serving 10K+ daily active users"
+      "Architected and implemented SSO/OAuth authentication systems with enhanced security protocols",
+      "Pioneered AI-assisted development practices, training team members on modern tooling and workflows",
+      "Delivered complex projects consistently ahead of schedule, earning \"Deadline Dhamaka Award\" in 2024",
+      "Expanded technical exposure to backend (Node.js, Nest.js, Java Spring Boot, Python) and databases via AI enhanced tools",
+      "Lead frontend development for enterprise applications serving thousands of users"
     ],
-    technologies: ["React", "Next.js", "TypeScript", "Node.js", "PostgreSQL", "AWS", "Docker"],
+    technologies: ["React", "Next.js", "TypeScript", "Node.js", "Nest.js", "Java Spring Boot", "Python", "SSO/OAuth", "AI Tools"],
     highlights: [
-      { label: "Team Leadership", value: "4 developers", color: "cyber-blue" },
-      { label: "Code Quality", value: "+40%", color: "quantum-green" },
-      { label: "Performance", value: "+60%", color: "neon-purple" }
+      { label: "Award Winner", value: "2024", color: "cyber-blue" },
+      { label: "AI Integration", value: "100%", color: "quantum-green" },
+      { label: "Team Training", value: "Success", color: "neon-purple" }
     ],
     color: "cyber-blue"
   },
   {
-    company: "SoluteLabs",
+    company: "Solute TechnoLabs LLP",
     role: "Software Engineer",
-    duration: "Jun 2022 - Dec 2022",
+    duration: "Jan 2021 - Apr 2023",
     location: "Ahmedabad, India",
     logo: "/api/placeholder/50/50",
     website: "https://solutelabs.com",
     type: "Full-time",
-    description: "Developed robust web applications and collaborated with cross-functional teams to deliver exceptional user experiences.",
+    description: "Evolved from Frontend Trainee to Software Engineer, mastering React.js and Next.js ecosystems.",
     achievements: [
-      "Built 3 production-ready web applications with React and Angular",
-      "Collaborated with design team to implement pixel-perfect UI components",
-      "Optimized application performance resulting in 35% faster load times",
-      "Integrated third-party APIs and services for enhanced functionality"
+      "Developed and published reusable NPM packages, standardizing UI components across organization",
+      "Built responsive web applications with GraphQL integration, improving data fetching efficiency by 40%",
+      "Established comprehensive testing protocols using Jest and React Testing Library",
+      "Collaborated with design teams to create pixel-perfect, accessible user interfaces",
+      "Received \"Team player award\" for exceptional collaboration and support"
     ],
-    technologies: ["React", "Angular", "JavaScript", "Python", "MongoDB", "Express.js"],
+    technologies: ["React", "Next.js", "Angular", "TypeScript", "JavaScript", "GraphQL", "Jest", "React Testing Library", "NPM"],
     highlights: [
-      { label: "Projects Delivered", value: "3", color: "neon-purple" },
-      { label: "Performance Boost", value: "+35%", color: "quantum-green" },
-      { label: "Client Satisfaction", value: "100%", color: "electric-cyan" }
+      { label: "NPM Packages", value: "Published", color: "neon-purple" },
+      { label: "Performance", value: "+40%", color: "quantum-green" },
+      { label: "Team Award", value: "2023", color: "electric-cyan" }
     ],
     color: "neon-purple"
-  },
-  {
-    company: "Reolo",
-    role: "Frontend Developer",
-    duration: "Mar 2021 - May 2022",
-    location: "Surat, India",
-    logo: "/api/placeholder/50/50",
-    website: "https://reolo.in",
-    type: "Full-time",
-    description: "Started my professional journey focusing on frontend development and learning modern web technologies.",
-    achievements: [
-      "Developed responsive web interfaces using HTML, CSS, and JavaScript",
-      "Learned and implemented React.js for dynamic user interfaces",
-      "Worked on e-commerce platform serving 1000+ customers",
-      "Gained experience in agile development and version control"
-    ],
-    technologies: ["HTML", "CSS", "JavaScript", "React", "Bootstrap", "Git"],
-    highlights: [
-      { label: "Growth Rate", value: "300%", color: "electric-cyan" },
-      { label: "User Base", value: "1K+", color: "quantum-green" },
-      { label: "Skills Learned", value: "6+", color: "neural-orange" }
-    ],
-    color: "electric-cyan"
   }
 ]
 
 const stats = [
   { label: "Years Experience", value: "4+", color: "cyber-blue", icon: Calendar },
-  { label: "Companies", value: "3", color: "neon-purple", icon: Building2 },
-  { label: "Projects Delivered", value: "100+", color: "electric-cyan", icon: Code },
-  { label: "Team Members Mentored", value: "10+", color: "quantum-green", icon: Users }
+  { label: "Companies", value: "2", color: "neon-purple", icon: Building2 },
+  { label: "Projects Delivered", value: "50+", color: "electric-cyan", icon: Code },
+  { label: "Awards Earned", value: "2", color: "quantum-green", icon: Users }
 ]
 
 export function ExperienceSection() {

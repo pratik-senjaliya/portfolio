@@ -64,49 +64,54 @@ const skillCategories = [
       { name: "Angular", level: 88, color: "electric-cyan" },
       { name: "TypeScript", level: 90, color: "quantum-green" },
       { name: "JavaScript", level: 95, color: "neural-orange" },
-      { name: "HTML/CSS", level: 98, color: "cyber-blue" }
+      { name: "Tailwind CSS", level: 92, color: "cyber-blue" },
+      { name: "MUI", level: 88, color: "electric-cyan" },
+      { name: "Storybook", level: 85, color: "neon-purple" }
     ]
   },
   {
-    title: "Backend & Database",
+    title: "Backend (via AI tools)",
     icon: Database,
     color: "neon-purple",
     description: "Server-side technologies and data management",
     skills: [
       { name: "Node.js", level: 85, color: "quantum-green" },
-      { name: "Python", level: 80, color: "neon-purple" },
-      { name: "PostgreSQL", level: 82, color: "cyber-blue" },
-      { name: "MongoDB", level: 78, color: "electric-cyan" },
-      { name: "Redis", level: 75, color: "neural-orange" },
-      { name: "REST APIs", level: 90, color: "quantum-green" }
+      { name: "Nest.js", level: 82, color: "neon-purple" },
+      { name: "Express", level: 80, color: "cyber-blue" },
+      { name: "Java Spring Boot", level: 78, color: "electric-cyan" },
+      { name: "Python", level: 80, color: "neural-orange" },
+      { name: "REST APIs", level: 90, color: "quantum-green" },
+      { name: "GraphQL", level: 85, color: "cyber-blue" }
+    ]
+  },
+  {
+    title: "AI/Automation",
+    icon: Brain,
+    color: "quantum-green",
+    description: "AI tools and automation technologies",
+    skills: [
+      { name: "OpenAI APIs", level: 88, color: "cyber-blue" },
+      { name: "GitHub Copilot", level: 95, color: "electric-cyan" },
+      { name: "Cursor", level: 92, color: "neural-orange" },
+      { name: "Prompt Engineering", level: 85, color: "neon-purple" },
+      { name: "N8n", level: 80, color: "quantum-green" },
+      { name: "MCP", level: 78, color: "cyber-blue" },
+      { name: "AI Agents", level: 82, color: "electric-cyan" }
     ]
   },
   {
     title: "Development Tools",
     icon: Wrench,
-    color: "quantum-green",
+    color: "electric-cyan",
     description: "Essential tools for modern development workflow",
     skills: [
       { name: "Git", level: 95, color: "cyber-blue" },
-      { name: "Docker", level: 80, color: "electric-cyan" },
-      { name: "AWS", level: 75, color: "neural-orange" },
-      { name: "Webpack", level: 85, color: "neon-purple" },
-      { name: "Jest/Testing", level: 88, color: "quantum-green" },
-      { name: "CI/CD", level: 82, color: "cyber-blue" }
-    ]
-  },
-  {
-    title: "Design & UX",
-    icon: Palette,
-    color: "electric-cyan",
-    description: "User interface and experience design",
-    skills: [
-      { name: "Figma", level: 85, color: "neon-purple" },
-      { name: "UI/UX Design", level: 82, color: "electric-cyan" },
-      { name: "Responsive Design", level: 95, color: "cyber-blue" },
-      { name: "Accessibility", level: 88, color: "quantum-green" },
-      { name: "Design Systems", level: 90, color: "neural-orange" },
-      { name: "Prototyping", level: 80, color: "electric-cyan" }
+      { name: "Jest", level: 88, color: "quantum-green" },
+      { name: "React Testing Library", level: 85, color: "neon-purple" },
+      { name: "NPM Publishing", level: 90, color: "electric-cyan" },
+      { name: "Jira", level: 82, color: "neural-orange" },
+      { name: "ClickUp", level: 80, color: "cyber-blue" },
+      { name: "Asana", level: 78, color: "quantum-green" }
     ]
   }
 ]
@@ -191,15 +196,16 @@ export function SkillsSection() {
               <Code className="w-8 h-8 text-white" />
             </div>
             <h3 className="text-2xl font-bold mb-4 text-primary">
-              Frontend <span className="text-cyber-blue">Specialization</span>
+              Frontend <span className="text-cyber-blue">Specialization</span> + AI Enhancement
             </h3>
             <p className="text-lg text-secondary mb-6">
-              Specialized in React ecosystem with extensive experience in Next.js and Angular frameworks
+              Specialized in React ecosystem with extensive experience in Next.js and Angular frameworks, enhanced with AI-powered development tools
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               <span className="futuristic-badge text-cyber-blue border-cyber-blue/30">React Expert</span>
               <span className="futuristic-badge text-neon-purple border-neon-purple/30">Next.js Pro</span>
               <span className="futuristic-badge text-electric-cyan border-electric-cyan/30">Angular Developer</span>
+              <span className="futuristic-badge text-quantum-green border-quantum-green/30">AI-Enhanced</span>
             </div>
           </div>
         </motion.div>

@@ -7,9 +7,9 @@ import { downloadCV } from '@/lib/cv-generator'
 
 const stats = [
   { value: "4+", label: "Years", sublabel: "Experience", icon: Briefcase, color: "from-blue-500 to-cyan-500" },
-  { value: "100+", label: "Projects", sublabel: "Delivered", icon: Code2, color: "from-purple-500 to-pink-500" },
-  { value: "50+", label: "Happy", sublabel: "Clients", icon: Users, color: "from-green-500 to-emerald-500" },
+  { value: "50+", label: "Projects", sublabel: "Delivered", icon: Code2, color: "from-purple-500 to-pink-500" },
   { value: "15+", label: "Tech", sublabel: "Stack", icon: Star, color: "from-orange-500 to-red-500" },
+  { value: "2", label: "Awards", sublabel: "Received", icon: Users, color: "from-green-500 to-emerald-500" },
 ]
 
 const socialLinks = [
@@ -185,16 +185,14 @@ export function HeroSection() {
             >
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-muted-foreground mb-4">
                 <span className="bg-gradient-to-r from-gray-600 to-gray-800 dark:from-gray-300 dark:to-gray-100 bg-clip-text text-transparent">
-                  Frontend Developer & Full-Stack Engineer
+                  Frontend Developer • Language-Agnostic Developer • AI-Enhanced Development
                 </span>
               </h2>
               
               <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-                I craft exceptional digital experiences with{" "}
-                <span className="text-blue-600 dark:text-blue-400 font-bold">React</span>,{" "}
-                <span className="text-purple-600 dark:text-purple-400 font-bold">Next.js</span>, and{" "}
-                <span className="text-pink-600 dark:text-pink-400 font-bold">Angular</span>.
-                Building scalable solutions that users love and businesses need.
+                Results-driven Frontend Developer with 4+ years of proven experience building scalable web applications and leading development teams. Language-agnostic approach enables quick adaptation to new technologies and backend integrations. Passionate about leveraging{" "}
+                <span className="text-blue-600 dark:text-blue-400 font-bold">AI tools</span> to enhance development workflows and deliver{" "}
+                <span className="text-purple-600 dark:text-purple-400 font-bold">high-quality solutions</span> ahead of deadlines.
               </p>
             </motion.div>
 
